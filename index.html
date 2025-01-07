@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6520359733092353"
+     crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/6b477c5542.js" crossorigin="anonymous"></script>
+  <title>Perilix Beta</title>
+  <link rel="stylesheet" href="index.css">
+  <script type="module" src="firebaseauth.js"></script>
+  <script type="module" src="google.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="logoperilix.png" alt="">
+    </div>
+    <div><button onclick="appBtn()" class="app"><a>Go To App</a></button></div>
+    <div><h1 class="company-name">Perilix Beta</h1>
+    </div>
+  </header>
+  
+  <div class="login-holder">
+    <div class="login-form">
+      <span class="close">&#215;</span>
+      <div id="signIn" class="login-form2">
+        <h1>Login</h1>
+        <div class="google">
+          <button id="google-login-btn" class="google-btn">Sign in with Google <i class="fa-brands fa-google"></i></button>
+        </div>
+        <form method="post" action="">
+          <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+          <div class="input-holder">
+            <span><i class="fa-solid fa-envelope"></i></span>
+            <input id="email" required type="email">
+            <label>Email</label>
+          </div>
+          <div class="input-holder">
+            <span><i class="fa-solid fa-lock"></i></span>
+            <input id="password" required type="password">
+            <label>Password</label>
+          </div>
+          <div class="forgot">
+            <p>Forgot Password?</p>
+          </div>
+          <div class="hold">
+            <button id="submitSignIn" class="login-button">Login</button>
+          </div>
+          <div class="register">
+            <p>Don't Have An Account?</p> 
+            <p><a id="signUpButton" class="signup" href="#">Sign Up</a></p>
+          </div>
+        </form>
+      </div>
+      <div id="signup" class="register-form2">
+        <h1>Register</h1>
+        <form method="post" action="">
+          <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+          <div class="input-holder">
+            <span><i style="font-size:18px" class="fa">&#xf007;</i></span>
+            <input id="uName" required type="text">
+            <label>Username</label>
+          </div>
+          <div class="input-holder">
+            <span><i class="fa-solid fa-envelope"></i></span>
+            <input id="rEmail" required type="email">
+            <label>Email</label>
+          </div>
+          <div class="input-holder">
+            <span><i class="fa-solid fa-lock"></i></span>
+            <input id="rPassword" required type="password">
+            <label>Password</label>
+          </div>
+          <div class="hold">
+            <button id="submitSignUp" class="signup-button">Sign Up</button>
+          </div>
+          <div class="login">
+            <p>Already Have An Account?</p> 
+            <p><a id="signInButton" class="signin" href="#">Sign In</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <main class="main-content">
+    <div class="intro-section">
+      <div class="slogan-holder">
+        <h2 class="slogan">Empowering Your Career Future</h2>
+      </div>
+      <p class="info">
+        Welcome to Perilix Beta. Our platform bridges the gap between talent and employers, supporting your journey to success.
+        <br>
+        <br>
+        Unlock remote opportunities and transform unreachable dreams into reality
+        <br>
+      <br>
+      Access to main channels will be available 24 hours of logging into the app.
+      </p>
+      
+
+    </div>
+    <div class="hold-login">
+      <button class="login-btn">Join Our Community</button>
+    </div>
+    <section id="career-tips" class="info-section">
+      <div class="in"><p>To get a job in this present day market is tough. Perilix allows you to communicate with people who have experience in this tough market or who are in the same position as you.</p></div>
+      <div class="middi"><h2>Career Tips</h2></div>
+      <div class="fo"><p>
+        You will discover actionable tips to enhance your job search and career development. From crafting the perfect resume to acing interviews, receive the perfect advice from experts which is designed to give you an edge in the competitive job market.
+      </p></div>
+    </section>
+    <section id="resources" class="learn-section">
+      <div><p>This is an app where high-quality workers can communicate with job recruiters in desperate need of a worker. And where anyone who is struggling in this job market can work with professionals or people with in the same position to help boost their own businesses</p></div>
+      <div><h2>Resources</h2></div>
+      <div>
+        <p>
+          An app where you promote your business in forms of services and gain attraction from those who find you unique. Our platform is dedicated to providing you with the knowledge and skills needed to advance in your career. Add those who you want to your server and communicate with others to join theirs.
+        </p>
+      </div>
+    </section>
+  </main>
+
+
+  <script>
+    function togglePassword(id) {
+            const passwordField = document.getElementById(id);
+            const toggleIcon = passwordField.nextElementSibling.firstChild;
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleIcon.className = "fas fa-eye-slash";
+            } else {
+                passwordField.type = "password";
+                toggleIcon.className = "fas fa-eye";
+            }
+        }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    document.body.classList.add("loaded")
+  }, 2500)
+})
+
+    // Simple script to add 'show' class when sections are scrolled into view
+    document.addEventListener('scroll', function() {
+      document.querySelectorAll('.info-section, .learn-section').forEach(function(section) {
+        if (window.scrollY + window.innerHeight > section.offsetTop + 100) {
+          section.classList.add('show');
+        }
+      });
+    });
+
+    const signUp = document.querySelector(".signup");
+    const signIn = document.querySelector(".signin");
+    const login = document.querySelector(".login-form2");
+    const signin = document.querySelector(".register-form2");
+    const loginForm = document.querySelector(".login-form");
+    const close = document.querySelector(".close");
+
+
+    signUp.addEventListener("click", () => {
+      loginForm.classList.add("move");
+      close.style.display = "none"
+    })
+
+    signIn.addEventListener("click", () => {
+      loginForm.classList.remove("move");
+      close.style.display = "flex"
+   })
+
+
+   const loginHolder = document.querySelector(".login-holder")
+
+   function appear() {
+    loginForm.style.transform = "scale(1)"
+    loginForm.style.opacity = "1"
+   }
+
+   function disappear() {
+    loginForm.style.transform = "scale(0)"
+    loginForm.style.opacity = "0"
+   }
+
+
+
+
+   const loginBtn = document.querySelector(".login-btn");
+   loginBtn.addEventListener("click", () => {
+    loginBtn.style.display = "none"
+    loginHolder.style.transform = "scale(1)"
+    setTimeout(appear, 2000)
+   })
+
+   close.addEventListener("click", () => {
+    disappear()
+    loginHolder.style.transform = "scale(0)"
+    loginBtn.style.display = "block"
+   })
+
+   function appBtn() {
+    window.location.href="https://perilix.netlify.app/"
+   }
+
+
+
+    
+
+  function goToLink() {
+
+    
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+    } else if (password.length < 8) {
+        alert("Password must be at least 8 characters long.");
+    }
+}
+  
+  </script>
+  
+</body>
+</html>
+
+
+
